@@ -1,0 +1,17 @@
+<h2>New Exhibit</h2>
+
+<form method="post" action="/exhibits">
+
+  <label for="artist">Artist:</label>
+  <select name="artist_id" id="artist">
+    <% @artists.each do |artist| %>
+      <option value="<%= artist.id %>">
+        <%= artist.name %>
+      </option>
+    <% end %>
+  </select>
+
+  <input type="text" name="category" id="category" />
+
+  <input type="submit" value="Add Exhibit">
+</form>

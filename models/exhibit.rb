@@ -6,8 +6,8 @@ class Exhibit
   attr_accessor :artist_id, :category
 
   def initialize (values)
-    @id = values['id'] if values['id']
-    @artist_id = values['artist_id'] if values['artist_id']
+    @id = values['id'].to_i if values['id']
+    @artist_id = values['artist_id'].to_i if values['artist_id']
     @category = values['category']
   end
 
