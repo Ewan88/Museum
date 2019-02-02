@@ -8,13 +8,26 @@ Artist.delete_all
 artist1 = Artist.new({
   "name" => "Bob Ross"
   })
-  artist1.save
 
 artist2 = Artist.new({
   "name" => "Kandinsky"
   })
-  artist2.save
 
+artist1.save
+artist2.save
+
+exhibit1 = Exhibit.new({
+  "artist_id" => artist1.id,
+  "category" => "joyful"
+  })
+
+exhibit2 = Exhibit.new({
+  "artist_id" => artist2.id,
+  "category" => "abstract"
+  })
+
+exhibit1.save
+exhibit2.save
 
 
 

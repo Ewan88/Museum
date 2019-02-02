@@ -13,32 +13,48 @@ class Exhibit
 
   # create
   def save
-
+    sql = "INSERT INTO exhibits (artist_id, category)
+    VALUES ($1, $2) RETURNING id"
+    values = [@artist_id, @category]
+    @id = SqlRunner.run(sql, values).first['id'].to_i
   end
 
   # read one
-  def view
-
+  def self.select(id)
+    sql = "SELECT * FROM exhibits WHERE id = $1"
+    values = [id]
+    return SqlRunner.run(sql, values).map {
+      |exhibit| Exhibit.new(exhibit)
+    }
   end
 
   # read all
-  def self.view_all
-
+  def self.all
+    sql = "SELECT * FROM exhibits"
+    return SqlRunner.run(sql).map {
+      |exhibit| Exhibit.new(exhibit)
+    }
   end
 
   # update
   def update
-
+    sql = "UPDATE exhibits SET (artist_id, category)
+    = ($1, $2) WHERE id = $3"
+    values = [@artist_id, @category, @id]
+    SqlRunner.run(sql, values)
   end
 
   # delete one
   def delete
-
+    sql = "DELETE FROM exhibits WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
   end
 
   # delete all
   def self.delete_all
-
+    sql = "DELETE FROM exhibits"
+    SqlRunner.run(sql)
   end
 
 end
