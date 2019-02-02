@@ -20,7 +20,7 @@ class Exhibit
   end
 
   # read one
-  def self.select(id)
+  def self.find(id)
     sql = "SELECT * FROM exhibits WHERE id = $1"
     values = [id]
     return SqlRunner.run(sql, values).map {
@@ -55,6 +55,12 @@ class Exhibit
   def self.delete_all
     sql = "DELETE FROM exhibits"
     SqlRunner.run(sql)
+  end
+
+  # view artist
+  # fetch artist with id = artist_id
+  def artist
+    return Artist.find(artist_id)
   end
 
 end

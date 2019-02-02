@@ -19,7 +19,7 @@ class Artist
   end
 
   # read one
-  def self.select(id)
+  def self.find(id)
     sql = "SELECT * FROM artists WHERE id = $1"
     values = [id]
     return SqlRunner.run(sql, values).map {
