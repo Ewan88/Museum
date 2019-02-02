@@ -1,13 +1,13 @@
-DROP TABLE IF EXISTS artists;
 DROP TABLE IF EXISTS exhibits;
+DROP TABLE IF EXISTS artists;
 
 CREATE TABLE artists (
-  id INT4 PRIMARY KEY,
+  id SERIAL8 PRIMARY KEY,
   name VARCHAR(255)
 );
 
 CREATE TABLE exhibits (
-  id INT4 PRIMARY KEY,
+  id SERIAL8 PRIMARY KEY,
   artist_id INT4 REFERENCES artists(id) ON DELETE CASCADE,
   category VARCHAR(255)
 );
