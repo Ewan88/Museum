@@ -26,8 +26,14 @@ exhibit2 = Exhibit.new({
   "category" => "abstract"
   })
 
+exhibit3 = Exhibit.new({
+  "artist_id" => artist1.id,
+  "category" => "happy trees"
+  })
+
 exhibit1.save
 exhibit2.save
+exhibit3.save
 
 binding.pry
 nil

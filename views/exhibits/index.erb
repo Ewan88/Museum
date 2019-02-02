@@ -1,5 +1,17 @@
 <h2>Exhibits</h2>
 
+<form method="post" action="exhibits/filter">
+  <select name="id">
+    <option value="">-- Artists --</option>
+    <% @artists.each do |artist| %>
+      <option value="<%= artist.id %>">
+        <%= artist.name %>
+      </option>
+    <% end %>
+  </select>
+  <input type="submit" value="filter">
+</form>
+
 <table>
   <tr>
     <th>Artist</th>

@@ -13,7 +13,7 @@ class Exhibit
 
   def save
     sql = "INSERT INTO exhibits (artist_id, category)
-    VALUES ($1, $2) RETURNING id"
+          VALUES ($1, $2) RETURNING id"
     values = [@artist_id, @category]
     @id = SqlRunner.run(sql, values).first['id'].to_i
   end
@@ -33,7 +33,7 @@ class Exhibit
 
   def update
     sql = "UPDATE exhibits SET (artist_id, category)
-    = ($1, $2) WHERE id = $3"
+          = ($1, $2) WHERE id = $3"
     values = [@artist_id, @category, @id]
     SqlRunner.run(sql, values)
   end
@@ -51,6 +51,16 @@ class Exhibit
 
   def artist
     return Artist.find(artist_id)
+  end
+
+  def self.filter(id)
+    sql = "SELECT exhibits.* FROM exhibits
+          WHERE artist_id
+          = $1"
+    values = [id]
+    return SqlRunner.run(sql, values).map {
+      |exhibit| Exhibit.new(exhibit)
+    }
   end
 
 end
