@@ -10,7 +10,6 @@ class Artist
     @name = values['name']
   end
 
-  # create
   def save
     sql = "INSERT INTO artists (name) VALUES ($1)
      RETURNING id"
@@ -18,16 +17,12 @@ class Artist
     @id = SqlRunner.run(sql, values).first['id'].to_i
   end
 
-  # read one
   def self.find(id)
     sql = "SELECT * FROM artists WHERE id = $1"
     values = [id]
-    return SqlRunner.run(sql, values).map {
-      |artist| Artist.new(artist)
-    }
+    return Artist.new(SqlRunner.run(sql, values).first)
   end
 
-  # read all
   def self.all
     sql = "SELECT * FROM artists"
     return SqlRunner.run(sql).map {
@@ -35,21 +30,18 @@ class Artist
     }
   end
 
-  # update
   def update
     sql = "UPDATE artists SET name = $1 WHERE id = $2"
     values = [@name, @id]
     SqlRunner.run(sql, values)
   end
 
-  # delete one
   def delete
     sql = "DELETE FROM artists WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end
 
-  # delete all
   def self.delete_all
     sql = "DELETE FROM artists"
     SqlRunner.run(sql)

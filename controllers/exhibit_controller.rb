@@ -4,7 +4,7 @@ require 'sinatra/contrib/all'
 require_relative '../models/exhibit'
 require_relative '../models/artist'
 
-also_reload '../models.*'
+also_reload './models.*'
 
 get '/exhibits' do
   @exhibits = Exhibit.all
@@ -18,13 +18,13 @@ end
 
 
 get '/exhibits/:id' do
-  @exhibit = Exhibit.find(params['id']).first
+  @exhibit = Exhibit.find(params['id'])
   erb(:"exhibits/show")
 end
 
 get '/exhibits/:id/edit' do
   @artists = Artist.all
-  @exhibit = Exhibit.find(params['id']).first
+  @exhibit = Exhibit.find(params['id'])
   erb(:"exhibits/edit")
 end
 
@@ -34,7 +34,7 @@ post '/exhibits/:id' do
 end
 
 post '/exhibits/:id/delete' do
-  Exhibit.find(params['id']).first.delete
+  Exhibit.find(params['id']).delete
   redirect('/exhibits')
 end
 

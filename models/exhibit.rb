@@ -7,11 +7,10 @@ class Exhibit
 
   def initialize (values)
     @id = values['id'].to_i if values['id']
-    @artist_id = values['artist_id'].to_i if values['artist_id']
+    @artist_id = values['artist_id'].to_i
     @category = values['category']
   end
 
-  # create
   def save
     sql = "INSERT INTO exhibits (artist_id, category)
     VALUES ($1, $2) RETURNING id"
@@ -19,16 +18,12 @@ class Exhibit
     @id = SqlRunner.run(sql, values).first['id'].to_i
   end
 
-  # read one
   def self.find(id)
     sql = "SELECT * FROM exhibits WHERE id = $1"
     values = [id]
-    return SqlRunner.run(sql, values).map {
-      |exhibit| Exhibit.new(exhibit)
-    }
+    return Exhibit.new(SqlRunner.run(sql, values).first)
   end
 
-  # read all
   def self.all
     sql = "SELECT * FROM exhibits"
     return SqlRunner.run(sql).map {
@@ -36,7 +31,6 @@ class Exhibit
     }
   end
 
-  # update
   def update
     sql = "UPDATE exhibits SET (artist_id, category)
     = ($1, $2) WHERE id = $3"
@@ -44,21 +38,17 @@ class Exhibit
     SqlRunner.run(sql, values)
   end
 
-  # delete one
   def delete
     sql = "DELETE FROM exhibits WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end
 
-  # delete all
   def self.delete_all
     sql = "DELETE FROM exhibits"
     SqlRunner.run(sql)
   end
 
-  # view artist
-  # fetch artist with id = artist_id
   def artist
     return Artist.find(artist_id)
   end

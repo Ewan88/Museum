@@ -9,10 +9,10 @@
   <% @exhibits.each do |exhibit| %>
   <tr>
     <td>
-      <%= exhibit.artist.first.name %>
+      <%= exhibit.artist.name %>
     </td>
     <td>
-      <%= exhibit.category.capitalize %>
+      <%= exhibit.category %>
     </td>
     <td>
       <a href="/exhibits/<%= exhibit.id %>">go to</a>

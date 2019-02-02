@@ -29,7 +29,5 @@ exhibit2 = Exhibit.new({
 exhibit1.save
 exhibit2.save
 
-
-
 binding.pry
 nil
