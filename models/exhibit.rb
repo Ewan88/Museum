@@ -63,7 +63,7 @@ class Exhibit
       sql = "SELECT * FROM exhibits WHERE category = $1"
       values = [category]
     elsif id > 0 && category.empty?
-      sql = "SELECT * FROM exhibits WHERE id = $1"
+      sql = "SELECT * FROM exhibits WHERE artist_id = $1"
       values = [id]
     else
       sql = "SELECT * FROM exhibits"
