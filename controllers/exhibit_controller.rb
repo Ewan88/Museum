@@ -8,11 +8,15 @@ require_relative '../models/artist'
 also_reload './models.*'
 
 get '/exhibits' do
-  @artists = Artist.all
   if !params.empty?
     @exhibits = Exhibit.filter(params['id'].to_i, params['category'])
+    @artists = []
+    @exhibits.each { |exhibit|
+      @artists.push(exhibit.artist)
+    }
   else
     @exhibits = Exhibit.all
+    @artists = Artist.all
   end
   erb(:"exhibits/index")
 end
