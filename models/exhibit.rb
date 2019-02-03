@@ -55,10 +55,20 @@ class Exhibit
   end
 
   def self.filter(id, category)
-    sql = "SELECT * FROM exhibits
-          WHERE artist_id = $1 OR category = $2"
-    values = [id, category]
-    return SqlRunner.run(sql, values).map {
+    if id > 0 && !category.empty?
+      sql = "SELECT * FROM exhibits
+            WHERE artist_id = $1 AND category = $2"
+      values = [id, category]
+    elsif id == 0 && !category.empty?
+      sql = "SELECT * FROM exhibits WHERE category = $1"
+      values = [category]
+    elsif id > 0 && category.empty?
+      sql = "SELECT * FROM exhibits WHERE id = $1"
+      values = [id]
+    else
+      sql = "SELECT * FROM exhibits"
+    end
+    return SqlRunner.run(sql, (values if values)).map {
       |exhibit| Exhibit.new(exhibit)
     }
   end

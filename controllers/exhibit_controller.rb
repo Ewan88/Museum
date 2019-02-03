@@ -9,7 +9,11 @@ also_reload './models.*'
 
 get '/exhibits' do
   @artists = Artist.all
-  @exhibits = Exhibit.all
+  if !params.empty?
+    @exhibits = Exhibit.filter(params['id'].to_i, params['category'])
+  else
+    @exhibits = Exhibit.all
+  end
   erb(:"exhibits/index")
 end
 
@@ -27,13 +31,6 @@ get '/exhibits/:id/edit' do
   @artists = Artist.all
   @exhibit = Exhibit.find(params['id'])
   erb(:"exhibits/edit")
-end
-
-post '/exhibits/filter' do
-  # binding.pry
-  @artists = Artist.all
-  @exhibits = Exhibit.filter(params['id'].to_i, params['category'])
-  erb(:"exhibits/index")
 end
 
 post '/exhibits/:id' do
