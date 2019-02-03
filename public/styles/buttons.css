@@ -1,0 +1,11 @@
+.rm_filter {
+  font-size: 0.80em;
+  text-align: right;
+}
+
+.add {
+  text-align: right;
+  position: fixed;
+  right: 60px;
+  top: 90px;
+}

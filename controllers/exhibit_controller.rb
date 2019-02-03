@@ -5,7 +5,7 @@ require 'pry'
 require_relative '../models/exhibit'
 require_relative '../models/artist'
 
-also_reload './models.*'
+also_reload('../models.*')
 
 get '/exhibits' do
   if !params.empty?
