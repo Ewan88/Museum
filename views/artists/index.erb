@@ -1,13 +1,16 @@
 <h2>Artists</h2>
-
+<a href="/artists/new">Add an Artist</a>
 <table>
   <tr>
     <th>Name</th>
+    <th></th>
   </tr>
   <% @artists.each do |artist| %>
   <tr>
     <td>
       <%= artist.name %>
+    </td>
+    <td>
       <form action="/artists/<%= artist.id %>/delete"
         method="post">
         <input type="submit" value="delete">
@@ -16,5 +19,3 @@
   </tr>
   <% end %>
 </table>
-
-<a href="/artists/new">Add an Artist</a>

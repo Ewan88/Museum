@@ -1,33 +1,34 @@
 <h2>Exhibits</h2>
-
-<form method="post" action="exhibits/filter">
-  <select name="id">
-    <option value="" selected>-- Artists --</option>
-    <% @artists.each do |artist| %>
-      <option value="<%= artist.id %>">
-        <%= artist.name %>
-      </option>
-    <% end %>
-  </select>
-  <select name="category">
-    <option value="" selected>-- Categories --</option>
-    <% categories = @exhibits.map {
-      |exhibit| exhibit.category
-    } %>
-    <% categories.uniq.each do |category| %>
-      <option value="<%= category %>">
-        <%= category %>
-      </option>
-    <% end %>
-  </select>
-  <input type="submit" value="filter">
-</form>
-
+<a href="/exhibits/new">Add an Exhibit</a>
 <table>
   <tr>
     <th>Artist</th>
     <th>Category</th>
     <th></th>
+  </tr>
+  <tr>
+    <form method="post" action="exhibits/filter">
+      <td><select name="id">
+        <option value="" selected>All Artists</option>
+        <% @artists.each do |artist| %>
+          <option value="<%= artist.id %>">
+            <%= artist.name %>
+          </option>
+        <% end %>
+      </select></td>
+      <td><select name="category">
+        <option value="" selected>All Categories</option>
+        <% categories = @exhibits.map {
+          |exhibit| exhibit.category
+        } %>
+        <% categories.uniq.each do |category| %>
+          <option value="<%= category %>">
+            <%= category %>
+          </option>
+        <% end %>
+      </select></td>
+      <td><input type="submit" value="filter"></td>
+    </form>
   </tr>
   <% @exhibits.each do |exhibit| %>
   <tr>
@@ -43,5 +44,3 @@
   </tr>
   <% end %>
 </table>
-
-<a href="/exhibits/new">Add an Exhibit</a>

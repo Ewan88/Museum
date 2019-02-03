@@ -1,7 +1,6 @@
 <h2>Edit Exhibition by <%= @exhibit.artist.name %></h2>
 
 <form method="post" action="/exhibits/<%= @exhibit.id %>">
-
   <label for="artist">Artist:</label>
   <select name="artist_id" id="artist">
     <% @artists.each do |artist| %>
@@ -16,14 +15,10 @@
       <% end %>
     <% end %>
   </select>
-
   <label for="category">Category:</label>
   <input type="text" name="category" value="<%= @exhibit.category %>">
-
-  <input type="submit" value="Submit">
-
+  <input type="submit">
 </form>
-
 <form action="/exhibits/<%= @exhibit.id %>/delete" method="post">
   <input type="submit" value="delete">
 </form>
