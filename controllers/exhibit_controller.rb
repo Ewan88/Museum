@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'sinatra/contrib/all'
-require 'pry'
 
 require_relative '../models/exhibit'
 require_relative '../models/artist'
@@ -31,8 +30,7 @@ end
 
 post '/exhibits/filter' do
   @artists = Artist.all
-  # binding.pry
-  @exhibits = Exhibit.filter(params['id'])
+  @exhibits = Exhibit.filter(params['id'].to_i, params['category'])
   erb(:"exhibits/index")
 end
 

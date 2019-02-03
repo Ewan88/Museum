@@ -2,10 +2,21 @@
 
 <form method="post" action="exhibits/filter">
   <select name="id">
-    <option value="">-- Artists --</option>
+    <option value="" selected>-- Artists --</option>
     <% @artists.each do |artist| %>
       <option value="<%= artist.id %>">
         <%= artist.name %>
+      </option>
+    <% end %>
+  </select>
+  <select name="category">
+    <option value="" selected>-- Categories --</option>
+    <% categories = @exhibits.map {
+      |exhibit| exhibit.category
+    } %>
+    <% categories.uniq.each do |category| %>
+      <option value="<%= category %>">
+        <%= category %>
       </option>
     <% end %>
   </select>

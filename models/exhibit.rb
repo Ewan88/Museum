@@ -1,4 +1,5 @@
 require_relative '../db/sql_runner'
+require 'pry'
 
 class Exhibit
 
@@ -53,11 +54,10 @@ class Exhibit
     return Artist.find(artist_id)
   end
 
-  def self.filter(id)
-    sql = "SELECT exhibits.* FROM exhibits
-          WHERE artist_id
-          = $1"
-    values = [id]
+  def self.filter(id, category)
+    sql = "SELECT * FROM exhibits
+          WHERE artist_id = $1 OR category = $2"
+    values = [id, category]
     return SqlRunner.run(sql, values).map {
       |exhibit| Exhibit.new(exhibit)
     }
