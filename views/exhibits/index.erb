@@ -44,5 +44,7 @@
   </tr>
   <% end %>
 </table>
-<br>
-<a class="rm_filter" href="/exhibits">Remove Filter</a>
+<% if request.fullpath.include? "?" %>
+  <br>
+  <a class="rm_filter" href="/exhibits">Remove Filter</a>
+<% end %>
