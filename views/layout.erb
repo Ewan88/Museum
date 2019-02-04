@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Museum of Art and Culture</title>
+  <title>Art Museum</title>
   <link rel="stylesheet" type="text/css" href="/styles/buttons.css">
   <link rel="stylesheet" type="text/css" href="/styles/forms.css">
   <link rel="stylesheet" type="text/css" href="/styles/structures.css">
@@ -9,18 +9,21 @@
 </head>
 <body>
   <nav>
-    <ul>
+    <ul class="home">
       <li>
-        <a href="/">MoAC</a>
+        <a class="home" href="/">The Art Museum</a>
+      </li>
+    </ul>
+    <ul class="nav">
+      <li>
+        <a href="/artists"> > Our Artists</a>
       </li>
       <li>
-        <a href="/artists">Artists</a>
-      </li>
-      <li>
-        <a href="/exhibits">Exhibits</a>
+        <a href="/exhibits"> > What's On</a>
       </li>
     </ul>
   </nav>
+  <hr>
   <section id="content">
   <%= yield %>
   </section>

@@ -1,5 +1,12 @@
+table {
+  padding: 0 10px;
+}
+
 th {
   text-align: left;
   padding: 5px 0;
-  color: gold;
+}
+
+td {
+  color: silver;
 }

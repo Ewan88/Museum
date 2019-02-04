@@ -5,7 +5,27 @@
 
 .add {
   text-align: right;
-  position: fixed;
-  right: 60px;
-  top: 90px;
+  margin: 0;
+  width: 120px;
+}
+
+a.home {
+  color: white !important;
+  font-size: 2.5em;
+}
+
+a.home:hover, a.home:active, a.home:focus {
+  color: silver !important;
+}
+
+ul.home {
+  width: 146px;
+  margin: 0;
+  margin-left: 40px;
+  padding: 0;
+}
+
+.nav {
+  padding: 7px;
+  margin: 0;
 }
