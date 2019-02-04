@@ -17,32 +17,35 @@ nav {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
+  border-bottom: 2px silver solid;
+  margin: 0 50px;
 }
 
 li {
-  padding: 10px;
+  padding: 0;
   margin: 0;
   list-style-type: none;
 }
 
 hr {
-  width: 565px;
+  width: 590px;
   margin: -5px 0 0 45px;
 }
 
 h1, h2 {
   margin: 0;
-  width: 420px;
+  /* width: 420px; */
 }
 
 div {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: baseline;
+  justify-content: space-between;
 }
 
 #content {
-  margin: 0 60px;
+  margin: 0 70px;
   padding: 0;
   display: flex;
   flex-flow: column wrap;

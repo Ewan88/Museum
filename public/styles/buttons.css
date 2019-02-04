@@ -6,7 +6,7 @@
 .add {
   text-align: right;
   margin: 0;
-  width: 120px;
+  /* width: 120px; */
 }
 
 a.home {
@@ -21,11 +21,10 @@ a.home:hover, a.home:active, a.home:focus {
 ul.home {
   width: 146px;
   margin: 0;
-  margin-left: 40px;
   padding: 0;
 }
 
 .nav {
-  padding: 7px;
-  margin: 0;
+  padding: 0;
+  margin: 6px 0;
 }
