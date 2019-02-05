@@ -34,7 +34,11 @@ hr {
 
 h1, h2 {
   margin: 0;
-  /* width: 420px; */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 div {

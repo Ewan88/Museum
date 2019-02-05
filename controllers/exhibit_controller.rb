@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/contrib/all'
 require 'pry'
+require 'wikipedia'
 
 require_relative '../models/exhibit'
 require_relative '../models/artist'
@@ -28,6 +29,8 @@ end
 
 get '/exhibits/:id' do
   @exhibit = Exhibit.find(params['id'])
+  @page = Wikipedia.find(@exhibit.artist.name)
+  # binding.pry
   erb(:"exhibits/show")
 end
 
