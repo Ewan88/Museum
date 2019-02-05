@@ -1,6 +1,8 @@
-<div class="show">
-  <h2>Exhibition by <%= @exhibit.artist.name %></h2>
-  <h2>Category: <%= @exhibit.category %></h2>
+<div id="infobar">
+  <div class="info">
+    <h2><%= @exhibit.artist.name %></h2>
+    <h3> <%= @exhibit.category %></h3>
+  </div>
   <div class="edit">
     <a class="edit" href="/exhibits/<%= @exhibit.id %>/edit">
       Edit

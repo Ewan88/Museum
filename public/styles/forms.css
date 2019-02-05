@@ -1,23 +1,5 @@
 input[type="submit"] {
   cursor: pointer;
-  letter-spacing: 1.1px;
-}
-
-input[value="delete"] {
-  border: none;
-  background-color: black;
-  padding: 0;
-  color: silver;
-  font-family: serif;
-  text-transform: capitalize;
-  font-size: medium;
-}
-
-input[value="delete"]:hover {
-  color: white;
-}
-
-input[value="filter"] {
   border: 1px solid white;
   border-radius: 4px;
   background-color: black;
@@ -28,6 +10,19 @@ input[value="filter"] {
   font-size: 0.8em;
 }
 
-input[value="filter"]:hover {
+input[type="submit"]:hover {
   border-color: red;
+}
+
+input[value="delete"] {
+  border: none;
+  background-color: black;
+  padding: 0;
+  color: silver;
+  text-transform: capitalize;
+  font-size: medium;
+}
+
+input[value="delete"]:hover {
+  color: white;
 }
