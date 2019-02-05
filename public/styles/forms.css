@@ -21,6 +21,7 @@ input[value="delete"] {
   color: silver;
   text-transform: capitalize;
   font-size: medium;
+  margin-top: 10px;
 }
 
 input[value="delete"]:hover {
