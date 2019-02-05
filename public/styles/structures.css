@@ -10,7 +10,7 @@ a, a:link, a:visited {
 }
 
 a:hover, a:active, a:focus {
-  color: white;
+  color: red;
 }
 
 nav {

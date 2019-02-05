@@ -17,6 +17,10 @@ a.home:hover, a.home:active, a.home:focus {
   color: silver !important;
 }
 
+a.nav:hover, a.nav:active, a.nav:focus {
+  color: white !important;
+}
+
 ul.home {
   width: 146px;
   margin: 0;

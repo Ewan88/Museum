@@ -1,6 +1,6 @@
 input[type="submit"] {
   cursor: pointer;
-  border: 1px solid white;
+  border: 2px solid silver;
   border-radius: 4px;
   background-color: black;
   padding: 1px 7px;
@@ -11,7 +11,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  border-color: red;
+  background-color: silver;
 }
 
 input[value="delete"] {
@@ -24,5 +24,6 @@ input[value="delete"] {
 }
 
 input[value="delete"]:hover {
-  color: white;
+  color: red;
+  background-color: black;
 }
