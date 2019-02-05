@@ -1,7 +1,7 @@
 body {
   background-color: black;
   color: white;
-  margin: 10px 0;
+  margin: 0;
 }
 
 a, a:link, a:visited {
@@ -60,19 +60,17 @@ img {
 }
 
 @media all and (min-width: 1000px){
-  nav {
-    width: 900px;
-  }
-  #content {
-    width: 860px;
+  body {
+    width: 1000px;
+    margin: 0 auto;
   }
 }
 
-@media all and (max-width: 500px){
+@media all and (max-width: 700px){
   nav {
-    width: 400px;
+    width: 600px;
   }
   #content {
-    width: 360px;
+    width: 560px;
   }
 }
