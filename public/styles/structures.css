@@ -1,6 +1,7 @@
 body {
   background-color: black;
   color: white;
+  margin: 10px 0;
 }
 
 a, a:link, a:visited {
@@ -18,7 +19,7 @@ nav {
   flex-direction: row;
   align-items: flex-end;
   border-bottom: 2px silver solid;
-  margin: 0 3em;
+  margin: 0px 50px;
   justify-content: space-between;
 }
 
@@ -38,7 +39,7 @@ h1, h2, h3 {
 img {
   max-width: 75%;
   height: auto;
-  margin-top: 25px;
+  margin-top: 10px;
   align-self: center;
 }
 
@@ -56,4 +57,22 @@ img {
   flex-flow: row wrap;
   align-items: flex-end;
   justify-content: space-between;
+}
+
+@media all and (min-width: 1000px){
+  nav {
+    width: 900px;
+  }
+  #content {
+    width: 860px;
+  }
+}
+
+@media all and (max-width: 500px){
+  nav {
+    width: 400px;
+  }
+  #content {
+    width: 360px;
+  }
 }
