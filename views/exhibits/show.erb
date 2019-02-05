@@ -1,12 +1,13 @@
-<h2>Exhibition by <%= @exhibit.artist.name %></h2>
-<h2>Category: <%= @exhibit.category %></h2>
-
+<div class="show">
+  <h2>Exhibition by <%= @exhibit.artist.name %></h2>
+  <h2>Category: <%= @exhibit.category %></h2>
+  <div class="edit">
+    <a class="edit" href="/exhibits/<%= @exhibit.id %>/edit">
+      Edit
+    </a>
+    <form action="/exhibits/<%= @exhibit.id %>/delete" method="post">
+      <input type="submit" value="delete">
+    </form>
+  </div>
+</div>
 <img src="<%= @page.image_urls.sample %>"
-
-<a href="/exhibits/<%= @exhibit.id %>/edit">
-  Edit
-</a>
-<br>
-<form action="/exhibits/<%= @exhibit.id %>/delete" method="post">
-  <input type="submit" value="delete">
-</form>

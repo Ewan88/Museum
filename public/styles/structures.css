@@ -39,6 +39,7 @@ h1, h2 {
 img {
   max-width: 100%;
   height: auto;
+  margin-top: 10px;
 }
 
 div {
@@ -48,12 +49,14 @@ div {
   justify-content: space-between;
 }
 
+div.show {
+}
+
 #content {
   margin: 0 70px;
   padding: 0;
   display: flex;
   flex-flow: column wrap;
-  background-color: rgba(0, 0, 0, 0.2);
   letter-spacing: 1px;
   line-height: 1.3;
 }

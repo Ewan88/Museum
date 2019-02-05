@@ -6,7 +6,6 @@
 .add {
   text-align: right;
   margin: 0;
-  /* width: 120px; */
 }
 
 a.home {
@@ -27,4 +26,13 @@ ul.home {
 .nav {
   padding: 0;
   margin: 6px 0;
+}
+
+div.edit {
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+a.edit {
+    padding-bottom: 10px;
 }
