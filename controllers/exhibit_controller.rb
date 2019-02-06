@@ -30,9 +30,11 @@ end
 get '/exhibits/:id' do
   @exhibit = Exhibit.find(params['id'])
   @images = Wikipedia.find(@exhibit.artist.name).image_urls
-  @images.each {
-    |image| @images.delete(image) if image.include? "pencil.svg"
-  }
+  if @images
+    @images.each {
+      |image| @images.delete(image) if image.include? ".svg"
+    }
+  end
   # binding.pry
   erb(:"exhibits/show")
 end

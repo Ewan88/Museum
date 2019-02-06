@@ -1,5 +1,5 @@
 <div id="infobar">
-  <div class="info">
+  <div>
     <h2><%= @exhibit.artist.name %></h2>
     <h3> <%= @exhibit.category %></h3>
   </div>
@@ -12,4 +12,4 @@
     </form>
   </div>
 </div>
-<img src="<%= @images.sample %>">
+<img src="<%= @images.sample if @images %>">
